@@ -1,0 +1,19 @@
+<import src="item-template.wxml"/>
+
+<view class="container">
+    <scroll-view
+            class="grid-container"
+            scroll-y="true"
+            bindscrolltolower="loadMoreData">
+
+        <view class="comment-list" wx:if="{{list.length>0}}">
+            <view class="comment_head">
+                <text>热门评论</text>
+            </view>
+
+            <block wx:for="{{list}}" wx:key="id">
+                <template is="commentItem" data="{{item: item}}"/>
+            </block>
+        </view>
+    </scroll-view>
+</view>

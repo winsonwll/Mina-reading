@@ -1,0 +1,102 @@
+<template name="essayItem">
+    <view class="article-item" data-id="{{item.content_id}}" bindtap="onEssayTap">
+        <view class="article-header">
+            <text class="article-title">{{item.hp_title}}</text>
+            <text class="article-type">短篇</text>
+            <view class="article-author">
+                <text>{{item.author[0].user_name}}</text>
+            </view>
+        </view>
+        <view class="article-content">
+            <text>{{item.guide_word}}</text>
+        </view>
+    </view>
+</template>
+
+
+<template name="serialItem">
+    <view class="article-item" data-id="{{item.id}}" bindtap="onSerialTap">
+        <view class="article-header">
+            <text class="article-title">{{item.title}}</text>
+            <text class="article-type">连载</text>
+            <view class="article-author">
+                <text>{{item.author.user_name}}</text>
+            </view>
+        </view>
+        <view class="article-content">
+            <text>{{item.excerpt}}</text>
+        </view>
+    </view>
+</template>
+
+
+<template name="questionItem">
+    <view class="article-item" data-id="{{item.question_id}}" bindtap="onQuestionTap">
+        <view class="article-header">
+            <text class="article-title">{{item.question_title}}</text>
+            <text class="article-type">问答</text>
+            <view class="article-author">
+                <text>{{item.answer_title}}</text>
+            </view>
+        </view>
+        <view class="article-content">
+            <text>{{item.answer_content}}</text>
+        </view>
+    </view>
+</template>
+
+
+<template name="articleDetail">
+    <view class="container">
+        <view class="wrap">
+            <view class="header">
+                <view class="author-date">
+                    <image class="avatar" src="{{article.author.web_url}}"></image>
+                    <text class="author">{{article.author.user_name}}</text>
+                    <text class="const-text">发表于</text>
+                    <text class="date">{{article.makettime}}</text>
+                </view>
+
+                <view class="title">
+                    <text>{{article.title}}</text>
+                </view>
+                <view wx:if="{{article.question_content.length}}">
+                    <text>{{article.question_content}}</text>
+                </view>
+            </view>
+
+            <view class="tool">
+                <view class="circle-img">
+                    <block wx:if="{{hasAudio}}">
+                        <image catchtap="onPlayTap" class="audio-img"
+                               src="{{isPlaying ? '/images/icon/music-stop.png': '/images/icon/music-start.png'}}"></image>
+                    </block>
+
+                    <button open-type="share" class="share-img"></button>
+                </view>
+                <view class="horizon"></view>
+            </view>
+
+            <block wx:if="{{article.answerer.user_name.length}}">
+                <view class="header">
+                    <view class="author-date">
+                        <image class="avatar" src="{{article.answerer.web_url}}"></image>
+                        <text class="author">{{article.answerer.user_name}}</text>
+                        <text class="const-text">回答：</text>
+                    </view>
+                </view>
+            </block>
+
+            <view class="content">
+                <text>{{article.content}}</text>
+            </view>
+            <view class="charge-edt">
+                <text>{{article.charge_edt}}</text>
+            </view>
+        </view>
+
+        <view bindtap="onViewMore" class="btn-more" wx:if="{{isFromShare}}">
+            <image class="homeicon" src="/images/icon/icon_home.png"></image>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,9 @@
+<import src="../item-template.wxml"/>
+
+<view class="container">
+    <view class="comment-list" wx:if="{{list.length>0}}">
+        <block wx:for="{{list}}" wx:key="id">
+            <template is="myItem" data="{{item: item}}"/>
+        </block>
+    </view>
+</view>

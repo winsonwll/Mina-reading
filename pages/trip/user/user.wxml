@@ -1,0 +1,37 @@
+<import src="../templates/item-template.wxml"/>
+
+<view class="container">
+    <view class="header">
+        <image src="{{ user_info.cover }}" style="width: {{ windowWidth }}px; height: {{ windowWidth - 150 }}px;"></image>
+        <view class="mask"></view>
+
+        <view class="userbar">
+            <view class="userinfo">
+                <view class="follower">
+                    <view class="count">{{ user_info.followers_count }}</view>
+                    <text>粉丝</text>
+                </view>
+                <image class="avatar" mode="aspectFill" src="{{ user_info.avatar_l }}"></image>
+                <view class="following">
+                    <view class="count">{{ user_info.followings_count }}</view>
+                    <text>关注</text>
+                </view>
+            </view>
+
+            <view class="name">{{ user_info.name }}</view>
+        </view>
+    </view>
+
+    <view class="trips">
+        <view class="trip-title">游记
+            <view class="count">{{ trips.length }}</view>
+        </view>
+        <block wx:for="{{ trips }}" wx:for-item="trip" wx:key="trip.id">
+            <template is="tripItem" data="{{trip: trip, mode: 2}}"/>
+        </block>
+    </view>
+
+    <view bindtap="onViewMore" class="btn-more" wx:if="{{isFromShare}}">
+        <image class="homeicon" src="/images/icon/icon_home.png"></image>
+    </view>
+</view>

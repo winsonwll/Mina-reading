@@ -1,0 +1,27 @@
+<view class="container">
+    <view class="today">
+        <view class="top">
+            <view>{{weather.city}}</view>
+            <view>{{weather.current.formattedDate}}</view>
+            <view class="update-time">{{weather.current.formattedTime}} 更新</view>
+        </view>
+
+        <view class="bot">
+            <text class="today-temperature">{{weather.current.temperature}}</text>
+            <text class="today-summary">{{weather.current.summary}}</text>
+            <view class="daily-summary">{{weather.daily.summary}}</view>
+        </view>
+    </view>
+
+    <view class="daily" wx:if="{{weather.daily.data.length>0}}">
+        <view class="daily-wrap">
+            <view class="daily-item" wx:for="{{weather.daily.data}}" wx:key="{{item.time}}">
+                <view class="daily-weekday">{{item.weekday}}</view>
+                <view class="daily-temperature">{{item.temperatureMin}}-{{item.temperatureMax}}</view>
+                <view class="daily-summary">{{item.summary}}</view>
+            </view>
+        </view>
+    </view>
+
+    <image mode="aspectFill" src="{{weatherBg}}" class="weather-img"></image>
+</view>

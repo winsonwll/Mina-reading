@@ -1,0 +1,54 @@
+@import "item/item-template.wxss";
+
+.musics-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+
+.dialog-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+.dialog-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 650rpx;
+    transform: translateY(150%);
+    transition: all 0.4s ease;
+    z-index: 2001;
+}
+.dialog-wrap {
+  padding: 50rpx;
+}
+.shareTimeline-img {
+  width: 100%;
+  height: 366rpx
+}
+.shareTimeline-tips {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 26rpx;
+}
+.shareTimeline-btn {
+  width: 50%;
+  height: 76rpx;
+  line-height: 76rpx;
+  margin: 0 auto;
+  font-size: 32rpx;
+}
+.dialog-show .dialog-container {
+    transform: translateY(-50%);
+}
+.dialog-show .dialog-mask {
+    display: block;
+}

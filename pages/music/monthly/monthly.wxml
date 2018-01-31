@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="musics">
+        <block wx:for="{{musics}}" wx:key="id">
+            <view class="music-item" data-id="{{item.id}}" bindtap="onHandleTap">
+                <view class="music-cover">
+                    <image class="music-cover-image" src="{{item.cover}}" mode="aspectFill"></image>
+                </view>
+                <view class="music-data">
+                    <view class="music-title">
+                        <text>{{item.title}}</text>
+                    </view>
+                    <view class="music-author">
+                        <text>{{item.author.user_name}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

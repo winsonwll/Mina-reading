@@ -1,0 +1,136 @@
+<import src="../../components/toptip/toptip.wxml"/>
+
+<view class="container" hidden="{{searchPanelShow}}">
+    <view class="dish-topic" bindtap="onTopic">我的前半生，竟没看过这些</view>
+    <view class="dish-btn">
+        <view class="btn-camera" bindtap="onCamera">
+        	<image class="cameraicon" src="/images/icon/camera.png"></image>
+        	{{btnMsg}}
+        </view>
+        <view class="btn-album" bindtap="onAlbum">从相册上传 »</view>
+    </view>
+
+    <image mode="aspectFill" src="{{dishBg}}" class="dish-img"></image>
+</view>
+
+<view class="search-panel" hidden="{{!searchPanelShow}}">
+	<view class="search-upload">
+		<image mode="aspectFill" src="{{uploadImg}}" class="search-upload-img"></image>
+		<view class="search-topic">
+			<text class="h1">{{searchResult[0].name}}</text>
+			<text class="h4" wx:if="{{poetry}}">{{poetry}}</text>
+		</view>
+	</view>
+	<view class="search-result" wx:if="{{hasSearchResult}}">
+		<text class="search-desc">识别结果</text>
+        <view class="search-list">
+    		<block wx:for="{{searchResult}}" wx:for-index="idx" wx:key="{{idx}}">
+                <block wx:if="{{searchResult[0].age}}">
+                    <view class="search-item">
+                        <text class="h2">年龄：{{item.age}}</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">颜值：{{item.beauty}}分</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">性别：{{item.gender}}</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">脸部大小：{{item.location.width}} x {{item.location.height}}</text>
+                    </view>
+
+                    <view class="search-item">
+                        <text class="h2">表情：{{item.expression}}</text>
+                        <view class="h5">
+                            可信度：<progress percent="{{item.expression_probablity}}" show-info active />
+                        </view>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">脸型：{{item.faceshape[0].type}}</text>
+                        <view class="h5">
+                            可信度：<progress percent="{{item.faceshape[0].probability}}" show-info active />
+                        </view>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">是否带眼镜：{{item.glasses}}</text>
+                        <view class="h5">
+                            可信度：<progress percent="{{item.glasses_probability}}" show-info active />
+                        </view>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">人种：{{item.race}}</text>
+                        <view class="h5">
+                            可信度：<progress percent="{{item.race_probability}}" show-info active />
+                        </view>
+                    </view>
+
+                    <view class="search-item">
+                        <text class="h2">左眼遮挡比例：{{item.qualities.occlusion.left_eye}}%</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">右眼遮挡比例：{{item.qualities.occlusion.right_eye}}%</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">鼻子遮挡比例：{{item.qualities.occlusion.nose}}%</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">嘴巴遮挡比例：{{item.qualities.occlusion.mouth}}%</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">左脸颊遮挡比例：{{item.qualities.occlusion.left_cheek}}%</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">右脸颊遮挡比例：{{item.qualities.occlusion.right_cheek}}%</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">下巴遮挡比例：{{item.qualities.occlusion.chin}}%</text>
+                    </view>
+
+                    <view class="search-item">
+                        <text class="h2">人脸模糊程度：{{item.qualities.blur > 0.5 ? '模糊' : '清晰'}}</text>
+                    </view>
+                    <view class="search-item">
+                        <text class="h2">脸部区域光照程度：{{item.qualities.illumination}}</text>
+                    </view>
+
+                    <view class="search-item">
+                        <text class="h2">是否真实人脸：{{item.qualities.type.human > 0.5 ? '真实人脸' : '卡通人脸'}}</text>
+                    </view>
+                </block>
+
+                <block wx:else>
+                    <view class="search-item">
+                        <block wx:if="{{item.calorie}}">
+                            <text class="h2">{{item.name}}</text>
+                            <view class="h5">
+                                卡路里：<text>{{item.calorie}}</text> / 每100g；
+                                相当于 <text>{{item.bowl}}</text> 碗米饭
+                            </view>
+                        </block>
+
+                        <block wx:else>
+                            <text class="h2">{{item.name}}</text>
+                            <view class="h5">
+                                可信度：<progress percent="{{item.score}}" show-info active />
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </block>
+        </view>
+	</view>
+
+	<view class="dish-btn">
+        <view class="btn-camera" bindtap="onCamera">
+        	<image class="cameraicon" src="/images/icon/camera.png"></image>
+        	重新拍
+        </view>
+        <view class="btn-album" bindtap="onAlbum">从相册上传 »</view>
+    </view>
+</view>
+
+<view bindtap="onViewMore" class="btn-more" wx:if="{{isFromShare}}">
+    <image class="homeicon" src="/images/icon/icon_home.png"></image>
+</view>
+
+<template is="toptipTemplate" data="{{ toptip }}"></template>

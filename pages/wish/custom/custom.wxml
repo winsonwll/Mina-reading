@@ -1,0 +1,40 @@
+<view class="container">
+    <!--  {{ showMore ? 'more' : ''}}  -->
+    <view class="mask"></view>
+    <view class="inner">
+
+        <form bindsubmit="save">
+            <!-- to name -->
+            <view class="item">
+                <text class="key">对方称呼</text>
+                <input name="toname" class="value" value="{{toname}}" bindblur="setToName"></input>
+            </view>
+
+            <!-- from name -->
+            <view class="item">
+                <text class="key">祝福落款</text>
+                <input name="nickName" class="value" value="{{userInfo.nickName}}" bindblur="setNickName"></input>
+            </view>
+
+            <!-- best wishes -->
+            <view class="item best-wishes">
+                <textarea bindinput="bindChangeText" class="textarea" name="best-wishes" value="{{wishes}}"
+                          id="best-wishes" bindblur="setWishes"></textarea>
+                <text class="word-tips {{isRed ? 'red' : ''}}">50字以内</text>
+            </view>
+
+            <!-- select panel -->
+            <view class="select-panel">
+                <button class="tips" plain="true" hover-class="tapped" bindtap="more-template">
+                    <text>选择其他推荐祝福语</text>
+                    <image class="bg" src="/images/wishes/indicator.png"></image>
+                </button>
+            </view>
+
+            <!-- controls -->
+            <view class="btns">
+                <button form-type="submit" class="save-btn" hover-class="hover-btn">保 存</button>
+            </view>
+        </form>
+    </view>
+</view>

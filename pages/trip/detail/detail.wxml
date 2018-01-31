@@ -1,0 +1,47 @@
+<import src="../templates/waypoint-template.wxml"/>
+
+<view class="container">
+    <block wx:if="{{isShow}}">
+        <view class="trip">
+            <view class="trip-top">
+                <image class="trip-avatar" src="{{ trip.user.avatar_l }}" data-id="{{ trip.user.id }}" bindtap="onGotoUserTap"></image>
+
+                <view class="trip-info">
+                    <view class="title">{{ trip.name }}</view>
+                    <view class="detail">
+                        <text>{{ trip.first_day }}</text>
+                        <text>{{ trip.recommendations }}人喜欢</text>
+                        <text>{{ trip.view_count }}浏览</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="trip-wps">
+                <block wx:if="{{ trip.days }}" wx:for="{{ trip.days }}" wx:for-item="day" wx:key="day.day">
+                    <view class="day">
+                        <view class="day-marker">
+                            <view class="circle"></view>
+                            <text>{{ day.date }} 第{{ day.day }}天</text>
+                        </view>
+
+                        <view class="wp-sep"></view>
+                        <view class="day-content">
+                            <block wx:for="{{ day.waypoints }}" wx:for-item="wp" wx:key="wp.id">
+                                <block wx:if="{{ wp.photo || wp.text }}">
+                                    <view class="waypoint" bindtap="onViewWaypointTap" data-waypoint="{{ wp.id }}">
+                                        <template is="wpItem" data="{{wp: wp, detail: 0, iWidth}}"/>
+                                    </view>
+                                    <view class="wp-sep"></view>
+                                </block>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <view bindtap="onViewMore" class="btn-more" wx:if="{{isFromShare}}">
+            <image class="homeicon" src="/images/icon/icon_home.png"></image>
+        </view>
+    </block>
+</view>

@@ -1,0 +1,3 @@
+<template name="toptipTemplate">
+    <view class="toptip {{ toptip.show ? 'toptip-show' : '' }}">{{ toptip.content }}</view>
+</template>

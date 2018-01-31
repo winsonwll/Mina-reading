@@ -1,0 +1,148 @@
+<import src="../../../components/stars/stars-template.wxml"/>
+<import src="../../wxParse/wxParse.wxml"/>
+
+<view class="container">
+    <block wx:if="{{isShow}}">
+        <view class="detail-head">
+            <image class="cover-img" src="{{bookData.coverimgLarge}}" mode="aspectFill"></image>
+
+            <view class="head-content">
+                <view class="main-title">
+                    <text>{{bookData.title}}</text>
+                </view>
+                <view class="sub-title">
+                    <text>{{bookData.author + " · "+bookData.pubdate}}</text>
+                </view>
+
+                <view class="like">
+                    <text class="highlight-font">{{bookData.wishCnt}}</text>
+                    <text class="plain-font">人喜欢</text>
+                    <text class="highlight-font">{{bookData.commentCnt}}</text>
+                    <text class="plain-font">条评论</text>
+                </view>
+            </view>
+
+            <image class="book-cover-img" src="{{bookData.coverimgMedium}}" data-src="{{bookData.coverimgLarge}}" catchtap="viewCoverImg" />
+        </view>
+
+        <view class="summary">
+            <view class="original-title">
+                <text>{{bookData.catalog}}</text>
+            </view>
+            <view class="flex-row">
+                <text class="mark">豆瓣评分</text>
+                <template is="starsTemplate" data="{{stars:bookData.stars, score:bookData.score}}"/>
+            </view>
+            <view class="flex-row">
+                <text class="mark">图书类别</text>
+                <text>{{bookData.genere}}</text>
+            </view>
+        </view>
+
+        <view class="tool">
+            <button open-type="share" class="share-img"></button>
+            <view class="horizon"></view>
+        </view>
+
+        <view class="synopsis">
+            <view class="synopsis-font">
+                <text>精华解读</text>
+            </view>
+            <view class="summary-content">
+                <!--<text>{{bookData.detail}}</text>-->
+                <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            </view>
+        </view>
+
+        <view class="recommend" wx:if="{{recommendInfo.length > 0}}">
+            <view class="recommend-font">
+                <text>相似的书还有</text>
+            </view>
+            <scroll-view class="recommend-imgs" scroll-x="true">
+                <block wx:for="{{recommendInfo}}" wx:for-item="item" wx:key="{{item.id}}">
+                    <view class="recommend-container" catchtap="onBookTap" data-bookid="{{item.id}}">
+                        <image class="recommend-img" src="{{item.coverimgMedium}}"></image>
+                        <text class="recommend-name">{{item.title}}</text>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+
+        <view data-src="{{myewm}}" catchtap="viewCoverImg" class="btn-invite">
+            <image class="bookicon" src="/images/icon/bot_book.png"></image>
+            每年一起读50本书
+        </view>
+        <view class="blank140"></view>
+    </block>
+</view>
+
+<view class="bottombar">
+    <view class="bot-l">
+        <view data-src="{{reward}}" catchtap="viewCoverImg" class="botitem">
+            <image class="boticon" src="/images/icon/bot_reward.png"></image>
+            <text class="bottxt">打赏</text>
+        </view>
+
+        <view catchtap="onShareTimelineTap" class="botitem">
+            <image class="boticon" src="/images/icon/bot_timeline.png"></image>
+            <text class="bottxt">分享</text>
+        </view>
+
+        <view catchtap="onPlayTap" class="botitem" wx:if="{{bookData.audio}}">
+            <block wx:if="{{isPlaying}}">
+                <image class="boticon" src="/images/icon/bot_pause.png"></image>
+                <text class="bottxt">暂停</text>
+            </block>
+
+            <block wx:else>
+                <image class="boticon" src="/images/icon/bot_play.png"></image>
+                <text class="bottxt">播放</text>
+            </block>
+        </view>
+    </view>
+
+    <view class="bot-r">
+        <view catchtap="onCommentTap" class="botitem">
+            <image class="boticon" src="/images/icon/bot_comment.png"></image>
+            <text class="bottxt">{{bookData.commentCnt ? bookData.commentCnt : '评论'}}</text>
+        </view>
+
+        <view catchtap="onLikeTap" class="botitem">
+            <block wx:if="{{liked}}">
+                <image class="boticon" src="/images/icon/bot_like_active.png"></image>
+                <text class="bottxt">已点赞</text>
+            </block>
+            <block wx:else>
+                <image class="boticon" src="/images/icon/bot_like.png"></image>
+                <text class="bottxt">点赞</text>
+            </block>
+        </view>
+
+        <view catchtap="onColletionTap" class="botitem">
+            <block wx:if="{{collected}}">
+                <image class="boticon" src="/images/icon/bot_collect_active.png"></image>
+                <text class="bottxt">已收藏</text>
+            </block>
+
+            <block wx:else>
+                <image class="boticon" src="/images/icon/bot_collect.png"></image>
+                <text class="bottxt">收藏</text>
+            </block>
+        </view>
+    </view>
+</view>
+
+<view bindtap="onHomeTap" class="btn-more" wx:if="{{isFromShare}}">
+    <image class="homeicon" src="/images/icon/icon_home.png"></image>
+</view>
+
+<view class="dialog {{ showDialog ? 'dialog-show' : '' }}">
+    <view class="dialog-mask" bindtap="toggleDialog" />
+    <view class="dialog-container">
+        <view class="dialog-wrap">
+            <image class="shareTimeline-img" src="{{shareTimelineImg}}" mode="aspectFill"></image>
+            <text class="shareTimeline-tips">系统已自动帮您生成图片，可前往相册分享到朋友圈哦~</text>
+            <button type="default" class="shareTimeline-btn" bindtap="toggleDialog">我知道了</button>
+        </view>
+    </view>
+</view>

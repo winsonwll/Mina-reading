@@ -1,0 +1,42 @@
+<template name="bookItem">
+  <view 
+  class="book-list" 
+  catchtap="onBookTap" 
+  data-bookid="{{id}}">
+    <view class="book-catalog-duration">
+      <view class="book-catalog">
+        <image class="book-catalog-icon" src="/images/icon/catalog.png"></image>
+        <text class="book-catalog-txt">{{catalog}}</text>
+      </view>
+      <view class="book-duration" wx:if="{{duration}}">
+        <image class="book-duration-icon" src="/images/icon/duration.png"></image>
+        <text class="book-duration-txt">{{duration}}</text>
+      </view>
+    </view>
+
+    <view class="book-container">
+      <view class="book-cover">
+        <image class="book-cover-img" src="{{coverimgMedium}}"></image>
+      </view>
+
+      <view class="book-content">
+        <view class="book-title">
+          <text>{{title}}</text>
+        </view>
+        <view class="book-topic">
+          <text>{{summary}}</text>
+        </view>
+        
+        <view class="book-hot-date">
+          <view class="book-hot">
+            <image class="book-hot-icon" src="/images/icon/hot.png"></image>
+            <text class="book-hot-txt">{{viewCnt}}</text>
+          </view>
+          <view class="book-date">
+            <text>{{created_at}} 上新</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

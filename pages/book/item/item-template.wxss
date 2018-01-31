@@ -1,0 +1,79 @@
+.book-list {
+  background-color: #fff;
+  padding: 25rpx;
+  margin-bottom: 25rpx;
+}
+
+.book-catalog-duration {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-catalog-icon {
+  width: 21rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.book-catalog-txt {
+  color: #333;
+}
+
+.book-duration-icon {
+  width: 24rpx;
+  height: 23rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.book-duration-txt {
+  font-size: 24rpx;
+  color: #B2B2B2;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+}
+.book-cover {
+  margin-right: 35rpx;
+}
+.book-cover-img {
+  width: 130rpx;
+  height: 190rpx;
+  box-shadow: 0 0 12rpx rgba(0, 0, 0, .2);
+}
+
+.book-content {
+  flex: 1;
+}
+.book-title {
+  padding-top: 10rpx;
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+  font-weight: 700;
+  color:#333;
+}
+
+.book-hot-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40rpx;
+  font-size: 24rpx;
+}
+
+.book-hot-icon {
+  width: 16rpx;
+  height: 18rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.book-hot-txt {
+  color: #E17A43;
+}
+.book-date {
+  color: #999;
+}

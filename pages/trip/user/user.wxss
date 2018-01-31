@@ -1,0 +1,86 @@
+@import "../templates/item-template.wxss";
+
+page {
+    background-color: #fbf7ed;
+}
+
+.header {
+    position: relative;
+}
+
+.header image {
+    vertical-align: bottom;
+}
+
+.mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 1;
+}
+
+.userbar {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+.userinfo {
+    position: relative;
+    text-align: center;
+    margin-top: 13.8%;
+}
+.follower, .following {
+    position: absolute;
+    top: 20rpx;
+    left: 50%;
+    width: 100rpx;
+}
+.follower{
+    margin-left: -200rpx;
+}
+.following{
+    margin-left: 100rpx;
+}
+.count {
+    font-size: 40rpx;
+}
+.avatar {
+    width: 144rpx;
+    height: 144rpx;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+.name {
+    margin-top: 4.1%;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.trips {
+    padding: 20rpx 0;
+}
+
+.trip-title {
+    margin-bottom: 10rpx;
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 20rpx;
+}
+
+.trip-title .count {
+    font-size: 24rpx;
+    color: #fff;
+    background-color: #e7e7e7;
+    padding: 0 16rpx;
+    display: inline-block;
+    border-radius: 38rpx;
+    margin-left: 12rpx;
+    position: relative;
+    top: -2rpx;
+}

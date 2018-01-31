@@ -1,0 +1,160 @@
+@import "../../components/toptip/toptip.wxss";
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.dish-topic {
+    position: absolute;
+    width: 340rpx;
+    height: 50rpx;
+    padding-left: 20rpx;
+    line-height: 50rpx;
+    border-top: 2rpx solid #63DAB9;
+    border-left: 2rpx solid #63DAB9;
+    border-bottom: 2rpx solid #63DAB9;
+    color: #63DAB9;
+    z-index: 10;
+    border-top-left-radius: 30rpx;
+    border-bottom-left-radius: 30rpx;
+    top: 30rpx;
+    right: 0;
+    font-size: 26rpx;
+}
+
+.container .dish-btn {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    bottom: 40rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-camera, .btn-album {
+    width: 310rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    border-radius: 78rpx;
+}
+.btn-camera {
+    background-color: #26D7A6;
+    color: #fff;
+    font-size: 32rpx;
+    border: 2rpx solid #26D7A6;
+}
+.btn-camera .cameraicon {
+    width: 42rpx;
+    height: 42rpx;
+    vertical-align: -8rpx;
+}
+.container .btn-album {
+    margin-top: 20rpx;
+    color: #A5A5A5;
+    border: 2rpx solid #fff;
+}
+
+.dish-img {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+.search-panel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+}
+.search-upload {
+    width: 100%;
+    height: 667rpx;
+    overflow: hidden;
+    position: relative;
+    background-color: #333;
+}
+.search-upload-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 21;
+}
+.search-topic {
+    position: absolute;
+    width: 100%;
+    z-index: 22;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background: rgba(0,0,0,.3);
+    padding: 10rpx 0;
+}
+.search-topic .h1 {
+    font-size: 36rpx;
+}
+.search-topic .h4 {
+    font-size: 24rpx;
+}
+
+
+.search-desc {
+    padding-left: 40rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #666;
+    font-size: 28rpx;
+    display: block;
+}
+
+.search-list {
+    padding-left: 40rpx;
+    background-color: #fff;
+}
+.search-item {
+    padding: 20rpx 20rpx 20rpx 0;
+    border-bottom: 2rpx solid #E3E3E3;
+    display: flex;
+    flex-direction: column;
+}
+.search-item:last-child {
+    border-bottom: none;
+}
+.search-item .h2 {
+    color: #333;
+    font-size: 30rpx;
+    margin-bottom: 10rpx;
+}
+.search-item .h5 {
+    color: #888;
+    font-size: 24rpx;
+}
+.search-item .h5 text {
+    color: #EA8678;
+}
+
+.search-panel .dish-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    padding: 40rpx 50rpx;
+}
+.search-panel .btn-album {
+    color: #26D7A6;
+    border: 2rpx solid #26D7A6;
+    font-size: 32rpx;
+}

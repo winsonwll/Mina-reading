@@ -1,0 +1,34 @@
+.types {
+  width: 100%;
+  height: 84rpx;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 0 2rpx 6rpx 0 rgba(0,0,0,.15);
+}
+
+.fix-fixed {
+  width: 100%;
+  margin-bottom: 84rpx;
+}
+
+.type-item {
+  flex: 1;
+  height: 84rpx;
+}
+
+.type-item .type-txt {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  height: 84rpx;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 84rpx;
+}
+
+.type-item .cur {
+  color: #89bdf7;
+}

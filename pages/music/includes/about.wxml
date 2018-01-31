@@ -1,0 +1,17 @@
+<view class="music-about">
+    <view class="music-content-header">
+        <view class="content-label">
+            <text>歌曲信息</text>
+        </view>
+        <view class="content-links" data-id="{{item.id}}" bindtap="switchContent">
+            <image class="link" src="/images/icon/music_story.png" mode="aspectFill" data-type="story"></image>
+            <image class="link" src="/images/icon/music_lyric.png" mode="aspectFill" data-type="lyric"></image>
+            <image class="link" src="/images/icon/music_about_active.png" mode="aspectFill"></image>
+        </view>
+    </view>
+    <view class="music-content-body">
+        <view class="about-content">
+            <text>{{item.info}}</text>
+        </view>
+    </view>
+</view>

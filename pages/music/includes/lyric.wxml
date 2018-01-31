@@ -1,0 +1,17 @@
+<view class="music-lyric">
+    <view class="music-content-header">
+        <view class="content-label">
+            <text>歌 词</text>
+        </view>
+        <view class="content-links" data-id="{{item.id}}" bindtap="switchContent">
+            <image class="link" src="/images/icon/music_story.png" mode="aspectFill" data-type="story"></image>
+            <image class="link" src="/images/icon/music_lyric_active.png" mode="aspectFill"></image>
+            <image class="link" src="/images/icon/music_about.png" mode="aspectFill" data-type="about"></image>
+        </view>
+    </view>
+    <view class="music-content-body">
+        <view class="lyric-content">
+            <text>{{item.lyric}}</text>
+        </view>
+    </view>
+</view>

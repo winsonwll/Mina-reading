@@ -1,0 +1,48 @@
+.grid-container{
+    height: 100%;
+}
+
+.comment_head {
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 25rpx;
+}
+
+.comment-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 25rpx;
+    border-bottom: 2rpx solid #eee;
+    background-color: #fff;
+}
+
+.avatar {
+    width: 62rpx;
+    height: 62rpx;
+    border-radius: 50%;
+}
+
+.content {
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.username-createtime {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.username {
+    color: #89bdf7;
+}
+
+.createtime {
+    color: #999;
+    font-size: 24rpx;
+}
+
+.desc {
+    letter-spacing: 2rpx;
+}

@@ -1,0 +1,25 @@
+<template name="wpItem">
+    <block wx:if="{{ wp.photo }}">
+        <view class="photo-ctn">
+            <block wx:if="{{detail===1}}">
+                <image style="width:100%; height:{{wp.photo_info.h * (iWidth - 30) / wp.photo_info.w}}px; background-color:#eee;"
+                       class="cover" lazy-load="true"
+                       src="{{ wp.photo_webtrip }}" bindtap="viewPreviewImg" data-src="{{ wp.photo }}"></image>
+            </block>
+            <block wx:else>
+                <image style="width:100%; height:{{wp.photo_info.h * (iWidth - 30) / wp.photo_info.w}}px; background-color:#eee;"
+                       class="cover" lazy-load="true"
+                       src="{{ wp.photo_webtrip }}"></image>
+            </block>
+        </view>
+        <view wx:if="{{ wp.text }}" class="wp-text">
+            <text>{{ wp.text }}</text>
+        </view>
+        <view class="wp-stats">
+            <view class="wp-time">
+                <image class="icon-time" src="/images/icon/time.png"></image>
+                <text>{{ wp.local_time }}</text>
+            </view>
+        </view>
+    </block>
+</template>

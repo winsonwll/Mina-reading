@@ -1,0 +1,177 @@
+<import src="item/item-template.wxml"/>
+
+<view class="search">
+    <view class="search-container">
+        <icon type="search" class="search-icon" size="13" color="#405f80"></icon>
+        <input type="text"
+               placeholder="搜索书名、作者"
+               placeholder-class="placeholder"
+               confirm-type="search"
+               bindfocus="onBindFocus"
+               bindinput="onSearchTap"
+               bindconfirm="onSearchTap"
+               value="{{searchVal}}"/>
+        <icon hidden="{{!searchPanelShow}}" type="clear" class="clear-icon" size="20" color="#84909F"
+              catchtap="onCancelTap"/>
+    </view>
+</view>
+<view class="fix-fixed"></view>
+
+<view class="container" hidden="{{searchPanelShow}}">
+    <scroll-view scroll-x="true" scroll-left="{{scrollLeft}}" class="generes-list">
+        <block wx:for="{{topTabItems}}" wx:for-index="idx" wx:key="{{idx}}">
+            <view
+                    catchtap="onSwitchTab"
+                    class="genere-item {{currentTopItem==idx ? 'cur' : ''}}"
+                    wx:for-index="idx"
+                    data-idx="{{idx}}">
+                {{item}}
+            </view>
+        </block>
+    </scroll-view>
+
+    <swiper current="{{currentTopItem}}" bindchange="onHandleChange" class="books-swiper"
+            style="height:{{swiperHeight}}px">
+
+        <!--全部-->
+        <swiper-item>
+            <scroll-view
+                    class="grid-container"
+                    scroll-y="true"
+                    bindscrolltolower="loadMoreData">
+                <block wx:for="{{g0DataList}}" wx:key="{{bookId}}">
+                    <template is="bookItem" data="{{...item}}"/>
+                </block>
+            </scroll-view>
+        </swiper-item>
+
+        <!--心灵成长-->
+        <swiper-item>
+            <scroll-view
+                    class="grid-container"
+                    scroll-y="true"
+                    bindscrolltolower="loadMoreData"
+                    bindscrolltoupper="refreshData">
+                <block wx:for="{{g1DataList}}" wx:key="{{bookId}}">
+                    <template is="bookItem" data="{{...item}}"/>
+                </block>
+            </scroll-view>
+        </swiper-item>
+
+
+        <!--婚姻亲子-->
+        <swiper-item>
+            <scroll-view
+                    class="grid-container"
+                    scroll-y="true"
+                    bindscrolltolower="loadMoreData"
+                    bindscrolltoupper="refreshData">
+                <block wx:for="{{g2DataList}}" wx:key="{{bookId}}">
+                    <template is="bookItem" data="{{...item}}"/>
+                </block>
+            </scroll-view>
+        </swiper-item>
+
+        <!--职场进阶-->
+        <swiper-item>
+            <scroll-view
+                    class="grid-container"
+                    scroll-y="true"
+                    bindscrolltolower="loadMoreData"
+                    bindscrolltoupper="refreshData">
+                <block wx:for="{{g3DataList}}" wx:key="{{bookId}}">
+                    <template is="bookItem" data="{{...item}}"/>
+                </block>
+            </scroll-view>
+        </swiper-item>
+
+        <!--管理创业-->
+        <swiper-item>
+            <scroll-view
+                    class="grid-container"
+                    scroll-y="true"
+                    bindscrolltolower="loadMoreData"
+                    bindscrolltoupper="refreshData">
+                <block wx:for="{{g4DataList}}" wx:key="{{bookId}}">
+                    <template is="bookItem" data="{{...item}}"/>
+                </block>
+            </scroll-view>
+        </swiper-item>
+
+
+        <!--文化历史-->
+        <swiper-item>
+            <scroll-view
+                    class="grid-container"
+                    scroll-y="true"
+                    bindscrolltolower="loadMoreData"
+                    bindscrolltoupper="refreshData">
+                <block wx:for="{{g5DataList}}" wx:key="{{bookId}}">
+                    <template is="bookItem" data="{{...item}}"/>
+                </block>
+            </scroll-view>
+        </swiper-item>
+
+        <!--其他-->
+        <swiper-item>
+            <scroll-view
+                    class="grid-container"
+                    scroll-y="true"
+                    bindscrolltolower="loadMoreData"
+                    bindscrolltoupper="refreshData">
+                <block wx:for="{{g6DataList}}" wx:key="{{bookId}}">
+                    <template is="bookItem" data="{{...item}}"/>
+                </block>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
+
+<view class="search-panel" hidden="{{containerShow}}">
+    <view class="search-default" wx:if="{{searchResult.length == 0}}">
+        <view class="search-hot">
+            <view class="search-default-head">
+                <text class="search-title">热门搜索</text>
+            </view>
+
+            <view class="search-default-list">
+                <block wx:for="{{hotKeys}}" wx:for-index="idx" wx:key="{{idx}}">
+                    <text catchtap="onSearchTap" class="search-keyword" data-keyword="{{item}}">{{item}}</text>
+                </block>
+            </view>
+        </view>
+
+        <view class="search-history" wx:if="{{searchHistory.length > 0}}">
+            <view class="search-default-head">
+                <text class="search-title">搜索记录</text>
+                <image catchtap="onRemoveSearchTap" class="search-remove-icon" src="/images/icon/remove.png"></image>
+            </view>
+
+            <view class="search-default-list">
+                <block wx:for="{{searchHistory}}" wx:for-index="idx" wx:key="{{idx}}">
+                    <text catchtap="onSearchTap" class="search-keyword" data-keyword="{{item}}">{{item}}</text>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <block wx:else>
+        <scroll-view
+                class="search-result"
+                scroll-y="true">
+            <view
+                    class="search-list"
+                    wx:for="{{searchResult}}"
+                    wx:for-index="idx" wx:key="{{idx}}"
+                    catchtap="onBookTap"
+                    data-bookid="{{item.id}}">
+                <view class="title">
+                    <text>{{item.title}}</text>
+                </view>
+                <view class="summary">
+                    <text>{{item.summary}}</text>
+                </view>
+            </view>
+        </scroll-view>
+    </block>
+</view>

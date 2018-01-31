@@ -1,0 +1,25 @@
+.dialog-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+.dialog-container {
+    position: fixed;
+    bottom: 0;
+    width: 750rpx;
+    background: #fff;
+    transform: translateY(150%);
+    transition: all 0.4s ease;
+    z-index: 110;
+}
+.dialog-show .dialog-container {
+    transform: translateY(0);
+}
+.dialog-show .dialog-mask {
+    display: block;
+}

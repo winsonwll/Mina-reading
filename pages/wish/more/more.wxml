@@ -1,0 +1,15 @@
+<view class="container">
+    <scroll-view scroll-y="true">
+        <block wx:for="{{wishList}}" wx:key="{{index}}">
+            <view class="item {{checkedID === item.id ? 'on' : ''}}" bindtap="check" data-id="{{item.id}}">
+                <view class="state">
+                    <view class="circle {{itemIndex == item ? 'on' : ''}}"></view>
+                </view>
+                <view class="sentence">
+                    {{item.wishes}}
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <button class="save" hover-class="save-hover" bindtap="save">确 定</button>
+</view>

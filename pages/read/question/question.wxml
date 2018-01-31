@@ -1,0 +1,3 @@
+<import src="../templates/template.wxml"/>
+
+<template is="articleDetail" data="{{article, hasAudio, isPlaying, isFromShare}}"/>

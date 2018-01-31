@@ -1,0 +1,86 @@
+<import src="../../components/toast/toast.wxml"/>
+<import src="../../components/toptip/toptip.wxml"/>
+
+
+<view class="container">
+    <view class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+
+    <view class="panel">
+        <view class="cell cell-access" bindtap="onCollect">
+            <view class="cell-bd">我的收藏</view>
+            <view class="cell-ft" wx:if="{{hasCollected}}">
+                <view class="cell-has"></view>
+            </view>
+        </view>
+        <view class="cell cell-access" bindtap="onLike">
+            <view class="cell-bd">我的点赞</view>
+            <view class="cell-ft" wx:if="{{hasLiked}}">
+                <view class="cell-has"></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="panel">
+        <view class="cell cell-access" bindtap="onFaceTap">
+            <view class="cell-bd">颜值物语</view>
+            <view class="cell-ft">看看你的颜值多少分</view>
+        </view>
+        <view class="cell cell-access" bindtap="onDishTap">
+            <view class="cell-bd">菜品识别</view>
+            <view class="cell-ft">快速查询食物热量</view>
+        </view>
+        <view class="cell cell-access" bindtap="onPlantTap">
+            <view class="cell-bd">形色识花</view>
+            <view class="cell-ft">探索大自然的奥秘</view>
+        </view>
+    </view>
+
+    <view class="panel">
+        <view class="cell cell-access" bindtap="onWishTap">
+            <view class="cell-bd">送祝福</view>
+            <view class="cell-ft"></view>
+        </view>
+        <view class="cell cell-access" bindtap="onWeatherTap">
+            <view class="cell-bd">天气预报</view>
+            <view class="cell-ft"></view>
+        </view>
+    </view>
+
+    <view class="panel">
+        <view class="cell cell-access" bindtap="onInviteTap">
+            <view class="cell-bd">邀请好友加入</view>
+            <view class="cell-ft">每年一起读50本书</view>
+        </view>
+        <view class="cell cell-access" bindtap="toggleDialog">
+            <view class="cell-bd">关于读书会</view>
+            <view class="cell-ft"></view>
+        </view>
+    </view>
+
+    <!--<view class="contact">
+        <button open-type="contact">进入客服会话</button>
+    </view>-->
+
+    <!--<view class="logout" bindtap="onLogoutTap">
+        <text>退出登录</text>
+    </view>-->
+</view>
+
+<view class="dialog {{ showDialog ? 'dialog-show' : '' }}">
+    <view class="dialog-mask" bindtap="toggleDialog" />
+    <view class="dialog-container">
+        <view class="intro">
+            <image mode="aspectFill" src="/images/logo_dushuhui.jpg" class="intro-logo"></image>
+            <view class="intro-content">
+                <text>樊登读书会是基于移动互联网的学习社区，是倡导“全名阅读”的先行者。我们的使命是帮助中国3亿人养成阅读习惯。利用APP，带领大家每年吸收50本书的精华内容，与此同时还举办各种线下沙龙活动和讲座，独学而无友，则孤陋而寡闻。我们愿通过知识的传播去改变自己，照福社会。</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<template is="toastTemplate" data="{{ toast }}"></template>
+
+<template is="toptipTemplate" data="{{ toptip }}"></template>

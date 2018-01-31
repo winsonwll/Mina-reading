@@ -1,0 +1,37 @@
+<import src="item/item-template.wxml"/>
+
+<view class="container">
+    <swiper
+            class="musics-swiper"
+            current="{{current}}"
+            bindchange="onHandleChange"
+            indicator-dots="true"
+            indicator-color="rgba(0, 0, 0, .1)"
+            indicator-active-color="#405F80"
+            style="height:{{swiperHeight}}px"
+    >
+        <block wx:for="{{musics}}" wx:key="id" wx:for-index="idx">
+            <swiper-item class="musics-swiper-item">
+                <block wx:if="{{item.id}}">
+                    <template is="musicItem" data="{{item: item}}"/>
+                </block>
+            </swiper-item>
+        </block>
+        <swiper-item></swiper-item>
+    </swiper>
+</view>
+
+<view bindtap="onShareTimelineTap" class="btn-shareTimeline">
+    <image class="timelineicon" src="/images/icon/icon_timeline.png"></image>
+</view>
+
+<view class="dialog {{ showDialog ? 'dialog-show' : '' }}">
+    <view class="dialog-mask" bindtap="toggleDialog" />
+    <view class="dialog-container">
+        <view class="dialog-wrap">
+            <image class="shareTimeline-img" src="{{shareTimelineImg}}" mode="aspectFill"></image>
+            <text class="shareTimeline-tips">系统已自动帮您生成图片，可前往相册分享到朋友圈哦~</text>
+            <button type="default" class="shareTimeline-btn" bindtap="toggleDialog">我知道了</button>
+        </view>
+    </view>
+</view>

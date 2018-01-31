@@ -1,0 +1,24 @@
+<import src="../item/item-template.wxml"/>
+
+<view class="container">
+    <template is="musicItem" data="{{item: music}}"/>
+</view>
+
+<view bindtap="onViewMore" class="btn-more" wx:if="{{isFromShare}}">
+    <image class="homeicon" src="/images/icon/icon_home.png"></image>
+</view>
+    
+<view bindtap="onShareTimelineTap" class="btn-shareTimeline">
+    <image class="timelineicon" src="/images/icon/icon_timeline.png"></image>
+</view>
+
+<view class="dialog {{ showDialog ? 'dialog-show' : '' }}">
+    <view class="dialog-mask" bindtap="toggleDialog" />
+    <view class="dialog-container">
+        <view class="dialog-wrap">
+            <image class="shareTimeline-img" src="{{shareTimelineImg}}" mode="aspectFill"></image>
+            <text class="shareTimeline-tips">系统已自动帮您生成图片，可前往相册分享到朋友圈哦~</text>
+            <button type="default" class="shareTimeline-btn" bindtap="toggleDialog">我知道了</button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,15 @@
+<!--评论列表模板-->
+<template name="commentItem">
+    <view class="comment-item">
+        <image class="avatar" src="{{item.author.avatar}}" mode="aspectFill"></image>
+        <view class="content">
+            <view class="username-createtime">
+                <text class="username">{{item.author.name}}</text>
+                <text class="createtime">{{item.published}}</text>
+            </view>
+            <view class="desc">
+                <text>{{item.summary}}</text>
+            </view>
+        </view>
+    </view>
+</template>

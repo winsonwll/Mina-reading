@@ -1,0 +1,45 @@
+<import src="../templates/waypoint-template.wxml"/>
+
+<view class="container">
+    <block wx:if="{{isShow}}">
+        <view class="waypoint" wx:if="{{ waypoint }}">
+            <template is="wpItem" data="{{wp: waypoint, detail: 1, iWidth}}"/>
+
+            <view class="recommender">
+                <view class="head">
+                    <text>{{ replies.recommender_count }} 人喜欢</text>
+                </view>
+
+                <view class="recommender_list">
+                    <image wx:for="{{ replies.recommenders }}" wx:for-item="user" wx:key="user.id" src="{{ user.avatar_m }}"
+                           data-id="{{ user.id }}" class="avatar" bindtap="onGotoUserTap"></image>
+                </view>
+            </view>
+
+            <view class="comment">
+                <view class="head">
+                    <text>{{ replies.comment_count }} 人评价</text>
+                </view>
+
+                <view class="comment_list">
+                    <view wx:for="{{ replies.comments }}" wx:for-item="comment" wx:key="comment.id" class="item">
+                        <image src="{{ comment.user.avatar_m }}" class="avatar"></image>
+                        <view class="info">
+                            <view class="username-createtime">
+                                <text class="username">{{ comment.user.name }}</text>
+                                <text class="createtime">{{ comment.date_added }}</text>
+                            </view>
+                            <view class="desc">
+                                <text>{{ comment.comment }}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view bindtap="onViewMore" class="btn-more" wx:if="{{isFromShare}}">
+            <image class="homeicon" src="/images/icon/icon_home.png"></image>
+        </view>
+    </block>
+</view>

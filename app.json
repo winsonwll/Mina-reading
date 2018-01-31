@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "pages/book/book",
+    "pages/book/detail/detail",
+    "pages/book/comment/comment",
+
+    "pages/trip/trip",
+    "pages/trip/detail/detail",
+    "pages/trip/waypoint/waypoint",
+    "pages/trip/user/user",
+
+    "pages/music/music",
+    "pages/music/monthly/monthly",
+    "pages/music/detail/detail",
+
+    "pages/read/read",
+    "pages/read/monthly/monthly",
+    "pages/read/essay/essay",
+    "pages/read/serial/serial",
+    "pages/read/question/question",
+    "pages/history/history",
+    
+    "pages/my/my",
+    "pages/my/invite/invite",
+    "pages/my/mycollect/mycollect",
+    "pages/my/mylike/mylike",
+    
+    "pages/recognition/recognition",
+    
+    "pages/wish/create/create",
+    "pages/wish/custom/custom",
+    "pages/wish/preview/preview",
+    "pages/wish/more/more",
+    "pages/my/weather/weather"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#405f80"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/book/book",
+        "text": "读 书",
+        "iconPath": "images/tab/book.png",
+        "selectedIconPath": "images/tab/book_active.png"
+      },
+      {
+        "pagePath": "pages/trip/trip",
+        "text": "旅 行",
+        "iconPath": "images/tab/trip.png",
+        "selectedIconPath": "images/tab/trip_active.png"
+      },
+      {
+        "pagePath": "pages/music/music",
+        "text": "音 乐",
+        "iconPath": "images/tab/music.png",
+        "selectedIconPath": "images/tab/music_active.png"
+      },
+      {
+        "pagePath": "pages/read/read",
+        "text": "文 章",
+        "iconPath": "images/tab/read.png",
+        "selectedIconPath": "images/tab/read_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我 的",
+        "iconPath": "images/tab/my.png",
+        "selectedIconPath": "images/tab/my_active.png"
+      }
+    ]
+  }
+}

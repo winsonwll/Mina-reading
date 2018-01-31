@@ -1,0 +1,171 @@
+.container {
+    background-color: #f7f4ee;
+}
+
+.inner {
+    padding: 20rpx 0;
+    position: relative;
+    top: 0;
+    transition: all ease-in 100ms 0ms;
+    height: 100%;
+}
+
+.mask {
+    background: rgba(0, 0, 0, 0.48);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.item {
+    height: 90rpx;
+    border-top: 1rpx solid #e0e0e0;
+    border-bottom: 1rpx solid #e0e0e0;
+    background-color: #fff;
+    padding: 0 30rpx;
+    font-size: 34rpx;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.item + .item {
+    margin-top: 20rpx;
+}
+
+.item .key {
+    color: #424242;
+    margin-right: 20rpx;
+    width: 136rpx;
+}
+
+.item .value {
+    flex: 1;
+    color: #888888;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.best-wishes {
+    position: relative;
+    height: 282rpx;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+    box-sizing: border-box;
+}
+
+.best-wishes textarea {
+    width: 100%;
+    height: 100%;
+    /*overflow:hidden;*/
+    line-height: 48rpx;
+    font-size: 34rpx;
+    color: #424242;
+    text-align: justify;
+}
+
+.word-tips {
+    position: absolute;
+    bottom: 20rpx;
+    right: 30rpx;
+    font-size: 28rpx;
+    color: #b2b2b2;
+}
+
+.red {
+    color: #e7404d;
+}
+
+.btns {
+    margin-top: 40rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.btns button {
+    padding: 0;
+    line-height: 0;
+    width: 230rpx;
+    line-height: 70rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #D9BA6A;
+    border: 3rpx solid #D9BA6A;
+    border-radius: 10rpx;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: transparent;
+}
+
+.btns button.hover-btn {
+    border: none;
+    background-color: #D9BA6A;
+    color: #ffffff;
+}
+
+.btns button + button {
+    margin-left: 30rpx;
+}
+
+.select-panel {
+    /*margin-top:30rpx;*/
+}
+
+.select-panel .tips {
+    font-size: 32rpx;
+    color: #e7404d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 330rpx;
+    padding: 0;
+    border: none;
+}
+
+.select-panel .tips[plain]:not([disabled]):active {
+    color: #e7404d;
+}
+
+.tapped {
+    opacity: 0.7
+}
+
+.btns .save-btn {
+    width: 630rpx;
+    height: 94rpx;
+    background-color: #d9ba6a;
+    color: #fff;
+    line-height: 94rpx;
+}
+
+.btns .save-btn::after {
+    display: none;
+}
+
+.select-panel .tips .bg {
+    width: 15rpx;
+    height: 27rpx;
+    margin-left: 10rpx;
+}
+
+.container.more .inner {
+    top: -220rpx;
+}
+
+.container.more .select-pannel .tips .bg {
+    transform: rotate(180deg);
+}
+
+.container.more .modal {
+    top: 542rpx;
+    height: calc(100% - 542rpx + 220rpx);
+}
+
+.container.more .mask {
+    display: block;
+}

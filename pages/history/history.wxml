@@ -1,0 +1,22 @@
+<view class="container">
+    <block wx:if="{{page === 'read'}}">
+        <view class="types">
+            <view wx:for="{{types}}" class="type-item" wx:key="type">
+                <text wx:if="{{type === item.type}}"
+                      class="type-txt {{type === item.type ? 'cur' : ''}}">{{item.name}}
+                </text>
+                <text wx:else data-type="{{item.type}}" bindtap="setType" class="type-txt">{{item.name}}</text>
+            </view>
+        </view>
+        <view class="fix-fixed"></view>
+    </block>
+
+    <scroll-view scroll-y="true" class="panel panel-without-margin-top">
+        <block wx:for="{{dateList}}" wx:key="value">
+            <view class="cell cell-access" data-month="{{item.value}}" data-title="{{item.title}}" bindtap="getMonthly">
+                <view class="cell-bd">{{item.title}}</view>
+                <view class="cell-ft"></view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

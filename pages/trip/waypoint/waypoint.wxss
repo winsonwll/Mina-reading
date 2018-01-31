@@ -1,0 +1,64 @@
+@import "../templates/waypoint-template.wxss";
+
+page {
+    background-color: #fbf7ed;
+}
+
+.waypoint {
+    padding: 30rpx;
+}
+
+.head {
+    margin: 20rpx 0;
+    font-size: 32rpx;
+    color: #a8915e;
+    font-weight: bold;
+}
+
+.recommender_list {
+    overflow: hidden;
+}
+
+.recommender_list .avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    float: left;
+    margin: 0 20rpx 20rpx 0;
+}
+
+.comment .item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30rpx;
+}
+
+.comment .avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.comment .info {
+    flex: 1;
+}
+
+.username-createtime {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.username {
+    color: #89bdf7;
+}
+
+.createtime {
+    color: #999;
+    font-size: 24rpx;
+}
+
+.desc {
+    letter-spacing: 2rpx;
+}

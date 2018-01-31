@@ -1,0 +1,22 @@
+<template name="loading">
+    <view class="page-loading">
+        <text class="weui-loading"/>
+        <text class="loading-text"> 努力加载中...</text>
+    </view>
+</template>
+
+<template name="loadMore">
+    <view class="load-more-wrap">
+        <block wx:if="{{hasMore}}">
+            <view class="load-content">
+                <text class="weui-loading"/>
+                <text class="loading-text"> 努力加载中...</text>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="load-content">
+                <text>没有更多内容了</text>
+            </view>
+        </block>
+    </view>
+</template>

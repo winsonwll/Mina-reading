@@ -1,0 +1,77 @@
+.today {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    color: #fff;
+}
+
+.top {
+    padding: 60rpx 20rpx 0 0;
+    text-align: right;
+    font-size: 30rpx;
+    color: #eee;
+}
+.top view {
+    margin-bottom: 10rpx;
+}
+.top .update-time {
+    font-size: 22rpx;
+    padding-top: 20rpx;
+}
+
+.bot {
+    padding: 60rpx 0 0 20rpx;
+}
+.bot .today-temperature {
+    font-size: 120rpx;
+    font-weight: 600;
+}
+.bot .today-summary {
+    padding-left: 30rpx;
+    padding-top: 70rpx;
+    font-size: 50rpx;
+}
+.bot .daily-summary {
+    padding-left: 18rpx;
+    color: #eee;
+    font-size: 24rpx;
+    line-height: 50rpx;
+}
+
+.daily {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color:rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+.daily-wrap {
+    padding: 20rpx 52rpx;
+}
+.daily-item {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    color: #fff;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 24rpx;
+}
+.daily-weekday {
+    width: 60rpx;
+}
+.daily-temperature {
+    width: 120rpx;
+    margin-right: 50rpx;
+    text-align: right;
+}
+
+.weather-img {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}

@@ -1,0 +1,40 @@
+@import "../../../components/dialog/dialog.wxss";
+
+.invite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20rpx 80rpx 120rpx;
+}
+.invite-img {
+    width: 100%;
+    margin-top: 20rpx;
+    box-shadow: 0 0 10rpx 3rpx rgba(0,0,0,.2);
+}
+
+.panel {
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+    border-bottom: none;
+}
+
+.guide {
+    padding: 0 30rpx;
+    color: #666;
+    font-size: 28rpx;
+}
+.guide-item {
+    display: flex;
+    flex-direction: column;
+    padding: 30rpx 0;
+    border-bottom: 2rpx solid #eee;
+}
+.guide-title {
+    font-weight: 700;
+}
+.guide-desc {
+    margin-top: 10rpx;
+}

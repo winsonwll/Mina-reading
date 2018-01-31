@@ -1,0 +1,8 @@
+<template name="dialogTemplate">
+    <view class="dialog {{ showDialog ? 'dialog-show' : '' }}">
+    <view class="dialog-mask" bindtap="toggleDialog" />
+    <view class="dialog-container">
+        {{contentDialog}}
+    </view>
+</view>
+</template>

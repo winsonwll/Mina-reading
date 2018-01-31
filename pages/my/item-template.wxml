@@ -1,0 +1,13 @@
+<template name="myItem">
+    <view class="comment-item" catchtap="onBookTap" data-bookid="{{item.id}}">
+        <image class="avatar" src="{{item.coverimgMedium}}" mode="aspectFill"></image>
+        <view class="content">
+            <view class="username-createtime">
+                <text class="username">{{item.title}}</text>
+            </view>
+            <view class="desc">
+                <text>{{item.summary}}</text>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,65 @@
+<import src="templates/item-template.wxml"/>
+
+<view class="search">
+    <view class="search-container">
+        <icon type="search" class="search-icon" size="13" color="#405f80"></icon>
+        <input type="text"
+               placeholder="搜索目的地、游记"
+               placeholder-class="placeholder"
+               confirm-type="search"
+               bindfocus="onBindFocus"
+               bindinput="onSearchActiveTap"
+               bindconfirm="onSearchTap"
+               value="{{searchVal}}"/>
+        <icon hidden="{{!searchPanelShow}}" type="clear" class="clear-icon" size="20" color="#84909F"
+              catchtap="onCancelTap"/>
+    </view>
+</view>
+<view class="fix-fixed"></view>
+
+
+<view class="container" hidden="{{searchPanelShow}}">
+    <scroll-view scroll-y="true" class="trip-list" bindscrolltolower="loadMoreData">
+        <block wx:for="{{ tripList }}" wx:for-item="trip" wx:key="trip.data[0].id">
+            <template is="tripItem" wx:if="{{ trip.type === 4 }}" data="{{trip: trip.data[0], mode: 1}}"/>
+        </block>
+    </scroll-view>
+</view>
+
+
+<view class="search-panel" hidden="{{containerShow}}">
+    <view class="search-default" wx:if="{{searchResult.length == 0}}">
+        <view class="search-hot">
+            <view class="search-default-head">
+                <text class="search-title">热门搜索</text>
+            </view>
+
+            <view class="search-default-list">
+                <block wx:for="{{hotKeys}}" wx:for-index="idx" wx:key="{{idx}}">
+                    <text catchtap="onSearchTap" class="search-keyword" data-keyword="{{item}}">{{item}}</text>
+                </block>
+            </view>
+        </view>
+
+        <view class="search-history" wx:if="{{searchHistory.length > 0}}">
+            <view class="search-default-head">
+                <text class="search-title">搜索记录</text>
+                <image catchtap="onRemoveSearchTap" class="search-remove-icon" src="/images/icon/remove.png"></image>
+            </view>
+
+            <view class="search-default-list">
+                <block wx:for="{{searchHistory}}" wx:for-index="idx" wx:key="{{idx}}">
+                    <text catchtap="onSearchTap" class="search-keyword" data-keyword="{{item}}">{{item}}</text>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <block wx:else>
+	    <scroll-view scroll-y="true" lower-threshold="800" class="trip-list" bindscrolltolower="loadMoreSearchData">
+	        <block wx:for="{{ searchResult }}" wx:for-item="trip" wx:key="trip.id">
+	            <template is="tripItem" data="{{trip: trip, mode: 5}}"/>
+	        </block>
+	    </scroll-view>
+    </block>
+</view>
