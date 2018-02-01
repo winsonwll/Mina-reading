@@ -2,7 +2,7 @@
 
 ## 扫码体验
 
-![](https://appvf.com/images/qrcode.jpg)
+![](https://appvf.com/images/arcode.jpg, 'Budda故道白云')
 
 
 
