@@ -2,5 +2,5 @@
 
 # 扫码体验
 
-![Budda故道白云][01]
-[01]: https://appvf.com/images/qrcode.jpg 'Budda故道白云'
+![](https://appvf.com/images/qrcode.jpg 'Budda故道白云')
+
